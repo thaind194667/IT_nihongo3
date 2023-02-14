@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funny picture share</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-toggler bg-warning"> 
+      <div style="font-size: 4rem;">
+        <%= button_to "HaiVNへようこそ", root_path, method: :get %> 
+        <p class="p-2" style="font-size: 2rem">The most funny picture sharing web <p>
+      </div>
+      <div style="font-size: 2rem">
+        <% if user_signed_in? %>
+          <ul class="nav nav-pills nav-fill"> 
+            <li class="nav-item"> 
+              <%= button_to "Create new", users_show_path, method: :get, class: "btn btn-lg btn-success" %> 
+            </li>
+            <li class="nav-item"> 
+              <%= button_to current_user.name, users_show_path, method: :get, class: "btn btn-lg btn-info" %> 
+            </li>
+            <li class="nav-item"> 
+              <%= button_to "Sign out" , destroy_user_session_path, method: :delete, class: "btn btn-danger btn-lg" %>
+            </li>
+          </ul>
+        <% else %>
+          <div>  <%= button_to "Sign in", new_user_session_path, method: :get, class: "btn btn-lg btn-success" %> </div>
+        <% end %>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
