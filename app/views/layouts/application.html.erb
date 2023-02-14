@@ -31,7 +31,17 @@
             </li>
           </ul>
         <% else %>
-          <div>  <%= button_to "Sign in", new_user_session_path, method: :get, class: "btn btn-lg btn-success" %> </div>
+          <ul class="nav nav-pills nav-fill"> 
+            <li class="nav-item"> 
+              <%= button_to "Create new", new_user_session_path, method: :get, class: "btn btn-lg btn-success" %>
+            </li>
+            <li class="nav-item"> 
+              <%= button_to "Sign in", new_user_session_path, method: :get, class: "btn btn-lg btn-info" %>
+            </li>
+            <li class="nav-item"> 
+              <%= button_to "Sign up", new_user_registration_path, method: :get, class: "btn btn-lg btn-success" %>
+            </li>
+          </ul>
         <% end %>
       </div>
     </nav>
