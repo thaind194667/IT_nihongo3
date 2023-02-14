@@ -10,31 +10,22 @@
       </ul>
     </div>
   <% end %>
+    <div class="field">
+          <%= form.label :image, "イメージ"  %>
+          <%= form.file_field :image %><br>
+        </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.label :caption, "キャプション" , :class => "form-label" %>
+    <%= form.text_area :caption,  :class => "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_area :caption %>
-  </div>
-
-  <div class="field">
-    <%= form.label :detail %>
+    <%= form.label :detail, "デスクリプション" %>
     <%= form.text_area :detail %>
   </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :like %>
-    <%= form.number_field :like %>
-  </div>
+  <div><%= form.hidden_field :user_id, :value => current_user.id %></div>
+    
 
   <div class="actions">
     <%= form.submit %>

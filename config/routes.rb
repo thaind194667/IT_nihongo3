@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :book_reviews
   get 'users/show'
+  get 'posts/show'
   get 'static_pages/home'
   root 'static_pages#home'
   
