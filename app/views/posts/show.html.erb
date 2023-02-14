@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if @post.image.attached? %>
+    <%= image_tag @post.image, class: "card-img" %>
+<% end %>
+
 <p>
   <strong>User:</strong>
   <%= @post.user_id %>
