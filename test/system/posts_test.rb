@@ -15,6 +15,10 @@ class PostsTest < ApplicationSystemTestCase
     click_on "New Post"
 
     fill_in "Caption", with: @post.caption
+<<<<<<< HEAD
+=======
+    fill_in "Comment", with: @post.comment
+>>>>>>> 8a0198dd66fa80a47e2e2e0c7c1afbff5f38aabd
     fill_in "Detail", with: @post.detail
     fill_in "Like", with: @post.like
     fill_in "User", with: @post.user_id
@@ -29,6 +33,10 @@ class PostsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Caption", with: @post.caption
+<<<<<<< HEAD
+=======
+    fill_in "Comment", with: @post.comment
+>>>>>>> 8a0198dd66fa80a47e2e2e0c7c1afbff5f38aabd
     fill_in "Detail", with: @post.detail
     fill_in "Like", with: @post.like
     fill_in "User", with: @post.user_id
