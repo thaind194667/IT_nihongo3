@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div >
     <%= form.hidden_field :like, :value => 0 %>
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
-  <div class="field">
-    <%= form.label :caption %>
+  <div  style="margin: 2rem; font-size: 2rem">
+    Caption: 
     <%= form.text_area :caption %>
   </div>
 
-  <div class="field">
-    <%= form.label :image, "本"  %>
+  <div  style="margin: 2rem; font-size: 1.4rem">
+    Image: 
     <%= form.file_field :image %><br>
   </div>
 
-  <div class="field">
-    <%= form.label :detail %>
+  <div  style="margin: 2rem; font-size: 2rem">
+    Detail: 
     <%= form.text_area :detail %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="margin: 2rem; font-size: 1.4rem">
     <%= form.submit %>
   </div>
 <% end %>

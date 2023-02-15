@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>My Posts</h1>
 
 <% @posts.each do |post| %>
   <div class="card" style="width: 75%;">
-    <h4 class="m-4 mb-2"> Post by <%= link_to post.user.name, "find/" + post.user.id.to_s %> </h4>
+    <h4 class="m-4 mb-2"> Post by <%= link_to post.user.name, "/find/" + post.user.id.to_s %> </h4>
     <h1 class="m-4" style="font-size: 4rem"> <%= post.caption %> </h1>
     <div  style="border: 1px solid; margin: 0.5rem">
     <% if post.image.attached? %>
@@ -15,7 +15,7 @@
     <div style="font-size: 1.5rem; margin: 1rem">  <%= link_to 'Detail', post %></div>
     <% if user_signed_in? %>
       <% if post.user.id == current_user.id %>
-        <div style="font-size: 1.5rem; margin: 1rem"> Likes: <%= post.like %> </div>
+        <div> Likes: <%= post.like %> </div>
       <% else %>
         <% button_to "Like", "" %>
       <% end %> 

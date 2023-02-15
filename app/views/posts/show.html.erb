@@ -1,51 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="card"> 
+<h2>
   <strong>User:</strong>
   <%= @post.user.name %>
-</p>
+</h2>
 
-<p>
+<h1>
   <strong>Caption:</strong>
   <%= @post.caption %>
-</p>
+</h1>
 
-<p>
+<p  style="border: 1px solid">
   <% if @post.image.attached? %>
     <%= image_tag @post.image, class: "card-img" %>
   <% else %> <p>Nothing </p>
   <% end %>
 </p>
 
-<p>
+<h4>
   <strong>Detail:</strong>
   <%= @post.detail %>
-</p>
+</h4>
 
-<p>
-  <strong>Like:</strong>
+<h4>
+  <% if @post.user.id == current_user.id %>
+    Likes:
+  <% else %>
+  <%= link_to "Likes: ", "/like/" + @post.id.to_s %>
+  <% end %>
   <%= @post.like %>
-</p>
+</h4>
 
-<div>
+<h4>
+Comments: <br />
   <% @post.comments.each do |comment| %>
 
-    <div> <%= comment.user.name %> </div>
-    <div> <%= comment.comment %> </div>
+    <div class="m-2"> 
+    <% if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar, class: "img-circle", style: "width:10%;" %>
+    <% end %> 
+      <%= link_to comment.user.name, "/find/" + comment.user.id.to_s %> : 
+      <%= comment.comment %> 
+    </div>
   <% end %>
-</div>
+</dh4>
 <% if user_signed_in? %>
-<form action="/comments" method="post">
-  <input name="comment" type="text" />
-  <input type="hidden" name="user_id" value = <%= current_user.id %> />
-  <input type="hidden" name="post_id" value = <%= @post.id %> />
-  <button type="submit"> Comment </button>
-</form>
+  <form action="/comments" method="post">
+    <input name="comment" type="text" />
+    <input type="hidden" name="user_id" value = <%= current_user.id %> />
+    <input type="hidden" name="post_id" value = <%= @post.id %> />
+    <button type="submit"> Comment </button>
+  </form>
+<% else %>
+  <%= button_to "Comment", new_user_session_path, method: :get, class: "btn btn-lg btn-success" %>
+<% end %>
 
-<% if @post.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-<% end %>
-<% end %>
+</div>
 
 
 

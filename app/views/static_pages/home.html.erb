@@ -1,8 +1,8 @@
 <div class=" m-3"  >
-  <h1 class="display-4">Sharingerへようこそ</h1>
+  <h1 class="display-4">HaiVNへようこそ</h1>
   <hr class="my-4">
-  <%= button_to "Show all", posts_path, method: :get, class: "btn btn-lg btn-success" %> 
+  <%= button_to "All posts", posts_path, method: :get, class: "btn btn-lg btn-success" %> 
   <% if user_signed_in? %>
-    <%= button_to "Show mine", "find/" + current_user.id.to_s, method: :get, class: "btn btn-lg btn-success" %> 
+    <%= button_to "Show mine", "/mypost", method: :get, class: "btn btn-lg btn-success" %> 
   <% end %>
 </div>
