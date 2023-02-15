@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  caption: MyText
+  detail: MyText
+<<<<<<< HEAD
+=======
+  comment: MyText
+>>>>>>> 8a0198dd66fa80a47e2e2e0c7c1afbff5f38aabd
+  like: 1
+
+two:
+  user_id: 1
+  caption: MyText
+  detail: MyText
+<<<<<<< HEAD
+=======
+  comment: MyText
+>>>>>>> 8a0198dd66fa80a47e2e2e0c7c1afbff5f38aabd
+  like: 1

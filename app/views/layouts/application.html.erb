@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
           <ul class="nav nav-pills nav-fill"> 
             <li class="nav-item"> 
-              <%= button_to "Create new", users_show_path, method: :get, class: "btn btn-lg btn-success" %> 
+              <%= button_to "Create new", new_post_path, method: :get, class: "btn btn-lg btn-success" %> 
             </li>
             <li class="nav-item"> 
               <%= button_to current_user.name, users_show_path, method: :get, class: "btn btn-lg btn-info" %> 
