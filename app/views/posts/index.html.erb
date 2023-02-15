@@ -3,8 +3,8 @@
 <h1>Posts</h1>
 
 <% @posts.each do |post| %>
-  <div class="card" style="width: 75%;">
-    <div class="m-4 mb-2"> Post by <%= link_to post.user.name, "find/" + post.user.id.to_s %> </div>
+  <div class="card" style="width: 75%; margin: auto;">
+    <div class="m-4 mb-2"> Posted by <%= link_to post.user.name, "find/" + post.user.id.to_s %> </div>
     <h1 class="m-4"> <%= post.caption %> </h1>
     <div> 
     <% if post.image.attached? %>
@@ -12,8 +12,8 @@
     <% end %>
     </div>
     <p class="card-text m-3 text-xl"> <%= post.detail %> </p>
-    <div>  <%= link_to 'Detail', post %></div>
-    <div> Likes: <%= post.like %> </div>
+    <div style="margin:10px">  <%= link_to 'Detail', post %></div>
+    <div style="margin-left:10px"> Likes: <%= post.like %> </div>
   </div>
   <br> <br>
 <% end %>

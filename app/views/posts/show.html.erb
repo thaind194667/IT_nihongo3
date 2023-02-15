@@ -16,27 +16,35 @@
   <% else %> <p>Nothing </p>
   <% end %>
 </p>
-
 <p>
   <strong>Detail:</strong>
   <%= @post.detail %>
 </p>
-
 <p>
   <strong>Like:</strong>
   <%= @post.like %>
 </p>
 
-<div>
-  <% @post.comments.each do |comment| %>
 
-    <div> <%= comment.user.name %> </div>
-    <div> <%= comment.comment %> </div>
-  <% end %>
+
+
+<div style="border-style: solid;text-indent:20px;margin:10px;">
+    <div style="margin:10px;">
+        <% @post.comments.each do |comment| %>
+        <% if comment.user.avatar.attached? %>
+            <div style="width: 60px ;" ><%= image_tag comment.user.avatar, class: "card-img-top" %></div>
+        <% end %>
+        <div> <%= comment.user.name %> </div>
+        <div class="card-body" style="margin-bottom: 10px;"> 
+        <p class="card-text"><%= comment.comment %></p>
+        </div>
+      <% end %>
+    </div>
+  
 </div>
 <% if user_signed_in? %>
 <form action="/comments" method="post">
-  <input name="comment" type="text" />
+  <input name="comment" type="text" style="width:50%;"/>
   <input type="hidden" name="user_id" value = <%= current_user.id %> />
   <input type="hidden" name="post_id" value = <%= @post.id %> />
   <button type="submit"> Comment </button>

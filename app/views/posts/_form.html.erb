@@ -16,13 +16,13 @@
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
-  <div class="field">
+  <div class="field" style = "width: 50%;">
     <%= form.label :caption %>
     <%= form.text_area :caption %>
   </div>
 
   <div class="field">
-    <%= form.label :image, "本"  %>
+    <%= form.label :image, "イメージ"  %>
     <%= form.file_field :image %><br>
   </div>
 
